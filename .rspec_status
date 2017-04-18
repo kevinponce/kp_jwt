@@ -1,9 +1,25 @@
-example_id                               | status | run_time        |
----------------------------------------- | ------ | --------------- |
-./spec/kp_jwt_spec.rb[1:1]               | passed | 0.00227 seconds |
-./spec/lib/json_web_token_spec.rb[1:1:1] | passed | 0.00126 seconds |
-./spec/lib/json_web_token_spec.rb[1:1:2] | passed | 0.00188 seconds |
-./spec/lib/json_web_token_spec.rb[1:2:1] | passed | 0.00118 seconds |
-./spec/lib/json_web_token_spec.rb[1:2:2] | passed | 0.00127 seconds |
-./spec/lib/json_web_token_spec.rb[1:2:3] | passed | 0.00118 seconds |
-./spec/lib/json_web_token_spec.rb[1:2:4] | passed | 0.00124 seconds |
+example_id                                                      | status | run_time        |
+--------------------------------------------------------------- | ------ | --------------- |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:1:1] | passed | 0.00964 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:1:2] | passed | 0.0084 seconds  |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:1:3] | passed | 0.01346 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:1:4] | passed | 0.01312 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:1:5] | passed | 0.00885 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:2:1] | passed | 0.04827 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:2:2] | passed | 0.01205 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:2:3] | passed | 0.00856 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:2:4] | passed | 0.00785 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:1:2:5] | passed | 0.00911 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:1:1] | passed | 0.00892 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:1:2] | passed | 0.0075 seconds  |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:1:3] | passed | 0.00791 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:2:1] | passed | 0.00664 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:2:2] | passed | 0.00778 seconds |
+./spec/dummy/spec/controllers/users_controller_spec.rb[1:2:2:3] | passed | 0.00825 seconds |
+./spec/kp_jwt_spec.rb[1:1]                                      | passed | 0.00186 seconds |
+./spec/lib/json_web_token_spec.rb[1:1:1]                        | passed | 0.0011 seconds  |
+./spec/lib/json_web_token_spec.rb[1:1:2]                        | passed | 0.00113 seconds |
+./spec/lib/json_web_token_spec.rb[1:2:1]                        | passed | 0.00129 seconds |
+./spec/lib/json_web_token_spec.rb[1:2:2]                        | passed | 0.00274 seconds |
+./spec/lib/json_web_token_spec.rb[1:2:3]                        | passed | 0.00134 seconds |
+./spec/lib/json_web_token_spec.rb[1:2:4]                        | passed | 0.00126 seconds |

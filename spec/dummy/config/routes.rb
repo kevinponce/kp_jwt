@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount KpJwt::Engine => '/kp_jwt'
+  post 'users_auth' => 'users_auth#create'
+  put 'users_auth' => 'users_auth#update'
 end

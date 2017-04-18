@@ -7,7 +7,6 @@ require 'rails/all'
 require 'webmock/rspec'
 require 'database_cleaner'
 require 'simplecov'
-require 'factory_girl_rails'
 
 # uncomment the following line to use spork with the debugger
 # require 'spork/ext/ruby-debug'
@@ -16,7 +15,6 @@ Spork.prefork do
   RSpec.configure do |config|
     config.mock_with :rspec
     config.order = 'random'
-    config.include FactoryGirl::Syntax::Methods
     # Enable flags like --only-failures and --next-failure
     config.example_status_persistence_file_path = '.rspec_status'
 

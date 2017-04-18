@@ -2,7 +2,7 @@ require 'kp_jwt/engine'
 
 module KpJwt
   mattr_accessor :token_lifetime
-  self.token_lifetime = nil
+  self.token_lifetime = 1.day
 
   mattr_accessor :token_signature_algorithm
   self.token_signature_algorithm = 'HS256'

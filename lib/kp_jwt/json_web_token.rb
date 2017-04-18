@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module KpJwt
+  require 'jwt'
+
   class JsonWebToken
     NATIVE = 'native'
 
