@@ -1,0 +1,11 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/kevinponce/Programming/kp_jwt/spec/dummy/app/helpers/application_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1492442988
+  }
+}

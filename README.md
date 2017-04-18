@@ -21,6 +21,15 @@ Or install it yourself as:
 $ gem install kp_jwt
 ```
 
+Run the install generator:
+```
+$ rails generate kp_jwt:install
+```
+
+```
+$ rails generate kp_jwt:auth_controller user
+```
+
 ## Contributing
 Contribution directions go here.
 
