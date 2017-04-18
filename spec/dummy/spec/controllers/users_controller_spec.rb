@@ -2,6 +2,7 @@
 
 require 'spec_helper_integration'
 require 'support/generic_support'
+require 'kp_jwt/tokens/auth'
 
 describe UsersAuthController, type: :controller do
   include GenericSupport
@@ -31,7 +32,7 @@ describe UsersAuthController, type: :controller do
 
   describe 'PUT #update' do
     let!(:user) { User.create(email: 'ex@ample.com', password: 'password123') }
-    let!(:refresh_token) { controller.send(:build_refresh_token, user.id) }
+    let!(:refresh_token) { KpJwt::Tokens::Refresh.new(user.id, 'user').build }
 
     describe 'valid refresh_token' do
       before(:each) do

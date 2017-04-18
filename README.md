@@ -30,6 +30,20 @@ $ rails generate kp_jwt:install
 $ rails generate kp_jwt:auth_controller user
 ```
 
+Include the KpJwt::Auth module in your ApplicationController
+```ruby
+class ApplicationController < ActionController::Base
+  include KpJwt::Auth
+end
+```
+
+simply add authenticate_user before action to the actions you need to secure
+```ruby
+class SecuredController < ApplicationController
+  before_action :authenticate_user
+end
+```
+
 ## Contributing
 Contribution directions go here.
 

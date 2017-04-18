@@ -17,6 +17,7 @@ module KpJwt
 
     def add_route
       route "post '#{name.underscore}_auth' => '#{name.underscore}_auth#create'"
+      route "put '#{name.underscore}_auth' => '#{name.underscore}_auth#update'"
     end
 
     private
