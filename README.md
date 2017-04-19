@@ -37,10 +37,10 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-simply add authenticate_user before action to the actions you need to secure
+Simply add authenticate_user! before action to the actions you need to secure
 ```ruby
 class SecuredController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!
 end
 ```
 

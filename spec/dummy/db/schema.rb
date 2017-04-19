@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417171339) do
+ActiveRecord::Schema.define(version: 20170418170118) do
+
+  create_table "kp_jwt_tokens", force: :cascade do |t|
+    t.string   "hashed_token"
+    t.string   "token_type"
+    t.string   "entity"
+    t.integer  "entity_id"
+    t.datetime "exp"
+    t.boolean  "revoked",      default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index [nil], name: "index_kp_jwt_tokens_on_token"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

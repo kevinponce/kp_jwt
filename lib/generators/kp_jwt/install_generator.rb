@@ -7,6 +7,10 @@ module KpJwt
 
     desc 'Creates a KpJwt initializer.'
 
+    def install
+      template 'create_kp_jwt_tokens.rb', "db/migrate/#{Time.now.strftime('%Y%m%d%H%M%S')}_create_kp_jwt_tokens.rb"
+    end
+
     def copy_initializer
       template 'kp_jwt.rb', 'config/initializers/kp_jwt.rb'
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper_integration'
+require 'rails_helper'
 require 'support/generic_support'
 require 'kp_jwt/tokens/auth'
 
@@ -52,6 +52,21 @@ describe UsersAuthController, type: :controller do
         token_params[1].reverse!
 
         headers = { 'Authorization': "JWT #{token_params}" }
+        request.headers.merge! headers
+        put :update
+      end
+
+      it { expect(response.status).to eq(401) }
+      it { expect(body_as_json(response)[:auth_token]).to be_nil }
+      it { expect(body_as_json(response)[:errors]).to_not be_nil }
+    end
+
+    describe 'refresh_token revoked' do
+      before(:each) do
+        tokens = KpJwt::JsonWebToken.decode(refresh_token)
+        KpJwtToken.find_by(tokens.except(:id).merge(entity_id: tokens[:id])).update_attributes(revoked: true)
+
+        headers = { 'Authorization': "JWT #{refresh_token}" }
         request.headers.merge! headers
         put :update
       end

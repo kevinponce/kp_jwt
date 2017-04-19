@@ -11,21 +11,35 @@ module KpJwt
 
       def build
         return unless KpJwt.token_lifetime
+        return unless KpJwt.refresh_token_required
 
-        JsonWebToken.encode(body) if KpJwt.refresh_token_required
+        token = JsonWebToken.encode(body)
+        save(token)
+
+        token
       end
 
       private
 
       def body
-        _body = { id: id, entity: entity_name, type: TYPE }
-        _body[:exp] = refresh_token_exp if refresh_token_exp
-
-        _body
+        @body ||= {
+          id: id,
+          entity: entity_name,
+          token_type: TYPE,
+          exp: refresh_token_exp
+        }.reject { |k, v| v.nil? }
       end
 
       def refresh_token_exp
         KpJwt.refresh_token_lifetime.from_now.to_i if KpJwt.refresh_token_lifetime
+      end
+
+      def save(token)
+        KpJwtToken.create(body.merge(hashed_token: hash(token), entity_id: body[:id], id: nil))
+      end
+
+      def hash(token)
+        Digest::SHA2.hexdigest(token)
       end
     end
   end

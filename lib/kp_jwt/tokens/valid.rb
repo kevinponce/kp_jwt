@@ -8,11 +8,11 @@ module KpJwt
       end
 
       def auth?
-        valid? && tokens[:type] == Tokens::Auth::TYPE
+        valid? && tokens[:token_type] == Tokens::Auth::TYPE
       end
 
       def refresh?
-        valid? && tokens[:type] == Tokens::Refresh::TYPE
+        valid? && !revoked? && tokens[:token_type] == Tokens::Refresh::TYPE
       end
 
       private
@@ -33,6 +33,10 @@ module KpJwt
 
       def valid?
         valid_token? && exp?
+      end
+
+      def revoked?
+        KpJwtToken.find_by(tokens.except(:id).merge(entity_id: tokens[:id])).try(:revoked)
       end
     end
   end

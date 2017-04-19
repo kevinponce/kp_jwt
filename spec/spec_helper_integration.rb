@@ -9,6 +9,7 @@ require 'rspec/rails'
 require 'timecop'
 require 'database_cleaner'
 require 'spec_helper'
+require 'simplecov'
 
 ENGINE_RAILS_ROOT = File.join(File.dirname(__FILE__), '../')
 

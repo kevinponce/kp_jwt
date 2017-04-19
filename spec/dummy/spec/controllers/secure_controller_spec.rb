@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper_integration'
+require 'rails_helper'
 require 'support/generic_support'
 require 'kp_jwt/tokens/auth'
 

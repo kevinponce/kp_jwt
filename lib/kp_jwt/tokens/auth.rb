@@ -11,16 +11,29 @@ module KpJwt
       end
 
       def build
-        JsonWebToken.encode(body)
+        token = JsonWebToken.encode(body)
+        save(token)
+
+        token
       end
 
       private
 
       def body
-        _body = { id: id, entity: entity_name, type: TYPE }
-        _body[:exp] = KpJwt.token_lifetime.from_now.to_i if KpJwt.token_lifetime
+        @body ||= {
+          id: id,
+          entity: entity_name,
+          token_type: TYPE,
+          exp: KpJwt.token_lifetime ? KpJwt.token_lifetime.from_now.to_i : nil
+        }.reject { |k, v| v.nil? }
+      end
 
-        _body
+      def save(token)
+        KpJwtToken.create(body.merge(hashed_token: hash(token), entity_id: body[:id], id: nil))
+      end
+
+      def hash(token)
+        Digest::SHA2.hexdigest(token)
       end
     end
   end
