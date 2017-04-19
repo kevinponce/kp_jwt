@@ -27,18 +27,18 @@ $ rails generate kp_jwt:install
 
 It will create an initializers, and migration file.
 
-Next, create auth controller for specific entity by running the following command. e.g. admin, user
+Next, create auth controller for specific entity by running the following command. e.g. admin, user, etc...
 
 ```
 $ rails generate kp_jwt:auth_controller user
 ```
 
 ### Model
-If have not create your entity model, run the following command:
+If you have not create your entity model, run the following command(e.g. admin, user, etc...):
 ```
 $ rails generate kp_jwt:model user
 ```
-else create a model that has method authenticate or uses has_secure_password like the following"
+else create a model that has method authenticate or uses has_secure_password like the following code:
 ```ruby
 class User < ActiveRecord::Base
   has_secure_password
