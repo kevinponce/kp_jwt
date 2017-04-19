@@ -48,7 +48,7 @@ module KpJwt
     end
 
     def refresh_auth_token
-      @new_auth_token ||= Tokens::Auth.new(tokens[:id], tokens[:entity]).build if Tokens::Valid.new(http_jwt_token).refresh?
+      @new_auth_token ||= Tokens::Auth.new(tokens[:entity_id], tokens[:entity]).build if Tokens::Valid.new(http_jwt_token).refresh?
     end
   end
 end

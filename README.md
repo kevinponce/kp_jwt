@@ -1,8 +1,7 @@
 # KpJwt
-Short description and motivation.
+A simplistic jwt authentication for rails api.
 
-## Usage
-How to use my plugin.
+# Getting Started
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -26,10 +25,27 @@ Run the install generator:
 $ rails generate kp_jwt:install
 ```
 
+It will create an initializers, and migration file.
+
+Next, create auth controller for specific entity by running the following command. e.g. admin, user
+
 ```
 $ rails generate kp_jwt:auth_controller user
 ```
 
+### Model
+If have not create your entity model, run the following command:
+```
+$ rails generate kp_jwt:model user
+```
+else create a model that has method authenticate or uses has_secure_password like the following"
+```ruby
+class User < ActiveRecord::Base
+  has_secure_password
+end
+```
+
+### Secure
 Include the KpJwt::Auth module in your ApplicationController
 ```ruby
 class ApplicationController < ActionController::Base
@@ -45,7 +61,12 @@ end
 ```
 
 ## Contributing
-Contribution directions go here.
+
+1. Fork it ( https://github.com/kevinponce/kp_jwt )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+class Create<%= entity_name.pluralize.camelize %> < ActiveRecord::Migration
+  def change
+    create_table :<%= entity_name.pluralize.underscore %> do |t|
+      t.string :email, unique: true, null: false
+      t.string :password_digest, null: false
+
+      t.timestamps null: false
+    end
+
+    add_index :<%= entity_name.pluralize.underscore %>, [:email]
+  end
+end
