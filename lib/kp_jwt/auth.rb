@@ -5,11 +5,11 @@ module KpJwt
     end
 
     def current_user
-      @current_user ||= entity_class.find(tokens[:id]) if Tokens::Valid.new(http_jwt_token).auth? && entity_class
+      @current_user ||= entity_class.find(tokens[:entity_id]) if Tokens::Valid.new(http_jwt_token).auth? && entity_class
     end
 
     def current_user_type
-      @current_user ||= entity_class.find(tokens[:id]) if Tokens::Valid.new(http_jwt_token).auth? && entity_class
+      @current_user ||= entity_class.find(tokens[:entity_id]) if Tokens::Valid.new(http_jwt_token).auth? && entity_class
     end
 
     private

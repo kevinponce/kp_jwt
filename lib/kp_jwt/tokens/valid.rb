@@ -22,7 +22,7 @@ module KpJwt
       end
 
       def valid_token?
-        tokens.present? && tokens[:id].to_i.present?
+        tokens.present? && tokens[:entity_id].to_i.present?
       end
 
       def exp?
@@ -36,7 +36,7 @@ module KpJwt
       end
 
       def revoked?
-        KpJwtToken.find_by(tokens.except(:id).merge(entity_id: tokens[:id])).try(:revoked)
+        KpJwtToken.find_by(tokens).try(:revoked)
       end
     end
   end

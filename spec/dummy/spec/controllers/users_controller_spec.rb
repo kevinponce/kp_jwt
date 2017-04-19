@@ -64,7 +64,7 @@ describe UsersAuthController, type: :controller do
     describe 'refresh_token revoked' do
       before(:each) do
         tokens = KpJwt::JsonWebToken.decode(refresh_token)
-        KpJwtToken.find_by(tokens.except(:id).merge(entity_id: tokens[:id])).update_attributes(revoked: true)
+        KpJwtToken.find_by(tokens).update_attributes(revoked: true)
 
         headers = { 'Authorization': "JWT #{refresh_token}" }
         request.headers.merge! headers

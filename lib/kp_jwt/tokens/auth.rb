@@ -3,10 +3,10 @@ module KpJwt
     class Auth
       TYPE = 'regular'.freeze
 
-      attr_accessor :id, :entity_name
+      attr_accessor :entity_id, :entity_name
 
-      def initialize(id, entity_name)
-        self.id = id
+      def initialize(entity_id, entity_name)
+        self.entity_id = entity_id
         self.entity_name = entity_name
       end
 
@@ -21,7 +21,7 @@ module KpJwt
 
       def body
         @body ||= {
-          id: id,
+          entity_id: entity_id,
           entity: entity_name,
           token_type: TYPE,
           exp: KpJwt.token_lifetime ? KpJwt.token_lifetime.from_now.to_i : nil
@@ -29,7 +29,7 @@ module KpJwt
       end
 
       def save(token)
-        KpJwtToken.create(body.merge(hashed_token: hash(token), entity_id: body[:id], id: nil))
+        KpJwtToken.create(body.merge(hashed_token: hash(token)))
       end
 
       def hash(token)
