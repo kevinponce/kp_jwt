@@ -16,7 +16,7 @@ module KpJwt
     end
 
     def add_route
-      route "resources '#{name.underscore}_auth', only: [:create, :update]"
+      route "resources :#{name.underscore}_auth, only: [:create, :update]"
     end
 
     private
