@@ -1,4 +1,5 @@
 # frozen_string_literal: true
 
+# handles api endpoint for <%=entity_name.underscore.split('_').join(' ') %> auth
 class <%= entity_name.camelize %>AuthController < KpJwt::AuthController
 end

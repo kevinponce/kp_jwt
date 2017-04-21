@@ -38,10 +38,12 @@ If you have not create your entity model, run the following command(e.g. admin, 
 ```
 $ rails generate kp_jwt:model user
 ```
-else create a model that has method authenticate or uses has_secure_password like the following code:
+else create a model that has method authenticate and include include KpJwt::Model or uses has_secure_password like the following code:
 ```ruby
 class User < ActiveRecord::Base
   has_secure_password
+
+  include KpJwt::Model
 end
 ```
 
