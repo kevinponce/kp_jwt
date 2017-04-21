@@ -12,7 +12,7 @@ module KpJwt
 
     def install
       template 'entity_model.rb.erb', "app/models/#{entity_name.singularize.underscore}.rb"
-      template 'entity_model_migration.rb', "db/migrate/#{Time.now.strftime('%Y%m%d%H%M%S')}_create_#{entity_name.singularize}.rb"
+      template 'entity_model_migration.rb', "db/migrate/#{Time.now.strftime('%Y%m%d%H%M%S')}_create_#{entity_name.pluralize.underscore}.rb"
     end
 
     private

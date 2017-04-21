@@ -12,7 +12,7 @@ module KpJwt
     DESC
 
     def copy_controller_file
-      template 'auth_controller.rb.erb', "app/controllers/#{name.underscore}_auth_controller.rb"
+      template 'auth_controller.erb', "app/controllers/#{name.underscore}_auth_controller.rb"
     end
 
     def add_route
