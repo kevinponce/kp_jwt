@@ -9,7 +9,7 @@ describe SecureController, type: :controller do
 
   describe 'get #index' do
     let!(:user) { User.create(email: 'ex@ample.com', password: 'password123') }
-    let!(:auth_token) { KpJwt::Tokens::Auth.new(user.id, 'user').build }
+    let!(:auth_token) { KpJwt::Tokens::Auth.new(user.id, 'user').build.token }
 
     describe 'valid jwt token' do
       before(:each) do

@@ -62,6 +62,16 @@ class SecuredController < ApplicationController
 end
 ```
 
+```
+POST /user_auth
+params: {
+  auth: {
+    email: 'ex@ample.com',
+    password: 'password123'
+  }
+}
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/kevinponce/kp_jwt )
