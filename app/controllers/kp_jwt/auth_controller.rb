@@ -9,10 +9,8 @@ module KpJwt
     before_action :authenticate, only: [:create]
 
     def create
-      auth_token = Tokens::Auth.new(entity.id, entity_name).build
       render json: {
-        exp: auth_token.exp,
-        auth_token: auth_token.token,
+        auth_token: Tokens::Auth.new(entity.id, entity_name).build,
         refresh_token: Tokens::Refresh.new(entity.id, entity_name).build
       }, status: :created
     end
