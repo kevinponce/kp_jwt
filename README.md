@@ -72,6 +72,12 @@ params: {
 }
 ```
 
+User current_user to access current user data model
+```ruby
+current_user.email
+current_user.child_models
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/kevinponce/kp_jwt )
