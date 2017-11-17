@@ -1,7 +1,7 @@
 module KpJwt
   module Auth
-    def authenticate_user!
-      return unauthorized unless Tokens::Valid.new(http_jwt_token).auth?
+    def authenticate_user!(silent = false)
+      return unauthorized(silent) unless Tokens::Valid.new(http_jwt_token).auth?
     end
 
     def current_user
@@ -22,8 +22,8 @@ module KpJwt
       @tokens ||= JsonWebToken.decode(http_jwt_token)
     end
 
-    def unauthorized
-      render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+    def unauthorized(silent = false)
+      render json: { errors: { base: ['Not Authenticated'] } }, status: :unauthorized unless silent
     end
 
     def entity_class
