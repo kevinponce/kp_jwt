@@ -5,5 +5,5 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'rails', '~> 5.0.2'
+gem 'rails'
 gem 'sqlite3'
