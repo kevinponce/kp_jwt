@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # creates table kp_jwt_tokens to track/verify tokens
-class Create<%= entity_name.pluralize.camelize %> < ActiveRecord::Migration
+class Create<%= entity_name.pluralize.camelize %> < ActiveRecord::Migration[4.2]
   def change
     create_table :<%= entity_name.pluralize.underscore %> do |t|
       t.string :email, unique: true, null: false
